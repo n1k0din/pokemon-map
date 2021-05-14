@@ -14,9 +14,9 @@ DEFAULT_IMAGE_URL = (
 )
 
 
-def add_pokemon(folium_map, lat, lon, image_url=DEFAULT_IMAGE_URL):
+def add_pokemon(folium_map, lat, lon, image_url=DEFAULT_IMAGE_URL):    
     icon = folium.features.CustomIcon(
-        image_url,
+        image_url or DEFAULT_IMAGE_URL,
         icon_size=(50, 50),
     )
     folium.Marker(
