@@ -14,7 +14,7 @@ DEFAULT_IMAGE_URL = (
 )
 
 
-def add_pokemon(folium_map, lat, lon, image_url=DEFAULT_IMAGE_URL):    
+def add_pokemon(folium_map, lat, lon, image_url=DEFAULT_IMAGE_URL):
     icon = folium.features.CustomIcon(
         image_url or DEFAULT_IMAGE_URL,
         icon_size=(50, 50),
@@ -96,7 +96,7 @@ def show_pokemon(request, pokemon_id):
 
     folium_map = folium.Map(location=MOSCOW_CENTER, zoom_start=12)
 
-    requested_pokemons_on_map = PokemonEntity.objects.filter(pokemon=requested_pokemon)
+    requested_pokemons_on_map = requested_pokemon.pokemon_entities.all()
 
     for pokemon_entity in requested_pokemons_on_map:
         add_pokemon(
